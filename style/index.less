@@ -1,3 +1,75 @@
- body {
-     background-color: #bfa;
- }
+@bg-color: #b7d4a8;
+
+// clear default style
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font: bold 20px "Courier"
+}
+
+// main
+#main {
+    width: 360px;
+    height: 420px;
+    background-color: @bg-color;
+    margin: 100px auto;
+    border: 10px solid black;
+    border-radius: 20px;
+    // 弹性盒模型
+    display: flex;
+    // 主轴方向
+    flex-flow: column;
+    // 主轴对齐方式
+    justify-content: space-around;
+    // 侧轴对齐方式
+    align-items: center;
+
+    #stage {
+        width: 304px;
+        height: 304px;
+        border: 2px solid black;
+        // 开启相对定位,蛇的参照物是stage
+        position: relative;
+
+        #food {
+            width: 10px;
+            height: 10px;
+            position: absolute;
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: space-between;
+            // align-content属性只适用于多行的flex容器（多个轴），并且当侧轴上有多余空间使flex容器内的flex线对齐。
+            align-content: space-between;
+            left: 40px;
+            top: 100px;
+            &>div {
+                width: 4px;
+                height: 4px;
+                background-color: #000;
+                transform: rotate(45deg);
+            }
+
+        }
+
+        #snake-container {
+            &>div {
+                width: 10px;
+                height: 10px;
+                background-color: #000;
+                border: 1px solid @bg-color;
+                // 绝对定位，相对stage
+                position: absolute;
+            }
+        }
+    }
+
+    #score-panel {
+        width: 300px;
+        display: flex;
+        justify-content: space-between;
+    }
+}
