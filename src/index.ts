@@ -24,14 +24,14 @@ class Food {
     }
 }
 // test
-const food = new Food();
-console.log(food);
+// const food = new Food();
+// console.log(food);
 
-let monitorInterval = setInterval (function() {
-    food.shufflePosition();
-}, 1000);
+// let monitorInterval = setInterval (function() {
+//     food.shufflePosition();
+// }, 1000);
 
-setTimeout(function() {
-    clearInterval(monitorInterval);
-}, 5000);
+// setTimeout(function() {
+//     clearInterval(monitorInterval);
+// }, 5000);
 
