@@ -60,7 +60,9 @@ module.exports = {
         ]
     },
     plugins: [
-        new HTMLWebpackPlugin()
+        new HTMLWebpackPlugin({
+            template: "./src/index.html"
+        })
     ],
     resolve: {
         extensions: [
