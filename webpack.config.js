@@ -6,7 +6,11 @@ module.exports = {
     entry: "./src/index.ts",
     output: {
         path: path.resolve(__dirname, "dist"),
-        filename: "bundle.js"
+        filename: "bundle.js",
+        environment: {
+            arrowFunction: false,
+            const: false
+        }
     },
     module: {
         rules: [
