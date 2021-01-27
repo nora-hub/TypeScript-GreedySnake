@@ -1,26 +1,18 @@
 "use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 require("../style/index.less");
-class Food {
-    constructor() {
-        this.shufflePosition = () => {
-            let top = Math.round(Math.random() * 29) * 10;
-            let left = Math.round(Math.random() * 29) * 10;
-            this.element.style.left = left + 'px';
-            this.element.style.top = top + 'px';
-        };
-        this.element = document.getElementById('food'); // !表示元素一定存在，不需要判断空的情况
-    }
-    get coordinateX() {
-        return this.element.offsetLeft;
-    }
-    get coordinateY() {
-        return this.element.offsetTop;
-    }
-}
+const Food_1 = __importDefault(require("./modules/Food"));
+const ScorePanel_1 = __importDefault(require("./modules/ScorePanel"));
 // test
-const food = new Food();
+const food = new Food_1.default();
 console.log(food);
+const scorePanel = new ScorePanel_1.default(10, 10);
+for (let i = 0; i < 200; i++) {
+    scorePanel.addScore();
+}
 // let monitorInterval = setInterval (function() {
 //     food.shufflePosition();
 // }, 1000);
