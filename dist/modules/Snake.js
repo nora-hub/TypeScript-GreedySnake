@@ -1,4 +1,5 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 class Snake {
     constructor() {
         this.addBody = () => {
@@ -27,3 +28,4 @@ class Snake {
         this.head.style.top = value + 'px';
     }
 }
+exports.default = Snake;
