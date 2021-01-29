@@ -4,6 +4,17 @@ class Snake {
     constructor() {
         this.addBody = () => {
             this.container.insertAdjacentHTML('beforeend', '<div></div>');
+            this.moveBody();
+        };
+        this.moveBody = () => {
+            for (let i = this.bodies.length - 1; i > 0; i--) {
+                // get previous body element's position
+                let preX = this.bodies[i - 1].offsetLeft;
+                let preY = this.bodies[i - 1].offsetTop;
+                // set current position
+                this.bodies[i].style.left = preX + 'px';
+                this.bodies[i].style.top = preY + 'px';
+            }
         };
         this.container = document.getElementById('snake-container');
         // find the first body element
@@ -27,6 +38,7 @@ class Snake {
         if (value < 0 || value > 290) {
             throw new Error('Hit the wall!');
         }
+        this.moveBody();
         this.head.style.left = value + 'px';
     }
     //set head coordinateY
@@ -37,6 +49,7 @@ class Snake {
         if (value < 0 || value > 290) {
             throw new Error('Hit the wall!');
         }
+        this.moveBody();
         this.head.style.top = value + 'px';
     }
 }

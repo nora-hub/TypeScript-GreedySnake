@@ -31,6 +31,7 @@ class Snake {
             throw new Error('Hit the wall!');
         }
 
+        this.moveBody();
         this.head.style.left = value + 'px';
     }
 
@@ -43,12 +44,25 @@ class Snake {
         if(value < 0 || value > 290) {
             throw new Error('Hit the wall!');
         }
-        
+
+        this.moveBody();
         this.head.style.top = value + 'px';
     }
 
     addBody = () => {
         this.container.insertAdjacentHTML('beforeend', '<div></div>');
+        this.moveBody();
+    }
+
+    moveBody = () => {
+        for (let i = this.bodies.length - 1; i > 0; i--) {
+            // get previous body element's position
+            let preX = (this.bodies[i - 1] as HTMLElement).offsetLeft;
+            let preY = (this.bodies[i - 1] as HTMLElement).offsetTop;
+            // set current position
+            (this.bodies[i] as HTMLElement).style.left = preX + 'px';
+            (this.bodies[i] as HTMLElement).style.top = preY + 'px';
+        }
     }
 
 }
