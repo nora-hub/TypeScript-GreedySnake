@@ -51,7 +51,7 @@ class Snake {
 
     addBody = () => {
         this.container.insertAdjacentHTML('beforeend', '<div></div>');
-        this.moveBody();
+        // this.moveBody();
     }
 
     moveBody = () => {

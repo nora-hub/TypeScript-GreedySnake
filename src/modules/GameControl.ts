@@ -54,6 +54,9 @@ class GameControl {
             default:
                 break;
         }
+        
+        // check if snake eats the food
+        this.eatFood(X, Y);
 
         try {
             this.snake.coordinateX = X;
@@ -63,9 +66,6 @@ class GameControl {
             this.isLive = false;
         }
 
-        // check if snake eats the food
-        this.eatFood(X, Y);
-        
         this.isLive && setTimeout(this.run.bind(this), 300 - (this.scorePanel.level - 1) * 30);
     }
 
