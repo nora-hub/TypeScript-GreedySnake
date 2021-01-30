@@ -68,7 +68,7 @@ class GameControl {
             }
         };
         this.food = new Food_1.default();
-        this.scorePanel = new ScorePanel_1.default();
+        this.scorePanel = new ScorePanel_1.default(10, 5);
         this.snake = new Snake_1.default();
         this.init();
         this.run();
