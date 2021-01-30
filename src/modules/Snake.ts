@@ -31,8 +31,20 @@ class Snake {
             throw new Error('Hit the wall!');
         }
 
+        // cannot turn around
+        if(this.bodies[1] && (this.bodies[1] as HTMLElement).offsetLeft === value) {
+            if(value < this.coordinateX) {
+                value = this.coordinateX + 10;
+            } else {
+                value = this.coordinateX - 10;
+            }
+        }
+
         this.moveBody();
+        // move head
         this.head.style.left = value + 'px';
+        // check if the snake has collision
+        this.hasCollision();
     }
 
     //set head coordinateY
@@ -45,8 +57,19 @@ class Snake {
             throw new Error('Hit the wall!');
         }
 
+        // cannot turn around
+        if(this.bodies[1] && (this.bodies[1] as HTMLElement).offsetTop === value) {
+            if(value < this.coordinateY) {
+                value = this.coordinateY + 10;
+            } else {
+                value = this.coordinateY - 10;
+            }
+        }
+
         this.moveBody();
         this.head.style.top = value + 'px';
+        // check if the snake has collision
+        this.hasCollision();
     }
 
     addBody = () => {
@@ -62,6 +85,15 @@ class Snake {
             // set current position
             (this.bodies[i] as HTMLElement).style.left = preX + 'px';
             (this.bodies[i] as HTMLElement).style.top = preY + 'px';
+        }
+    }
+
+    hasCollision = () => {
+        for( let i = this.bodies.length - 1; i > 0; i--) {
+            let element = this.bodies[i] as HTMLDListElement;
+            if(element.offsetLeft === this.coordinateX && element.offsetTop === this.coordinateY) {
+                throw new Error('Collision!');
+            }
         }
     }
 

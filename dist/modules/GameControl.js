@@ -54,7 +54,7 @@ class GameControl {
                 alert(error + ' Game Over!');
                 this.isLive = false;
             }
-            this.isLive && setTimeout(this.run.bind(this), 300 - (this.scorePanel.level - 1) * 30);
+            this.isLive && setTimeout(this.run.bind(this), 300 - (this.scorePanel.level - 1) * 60);
         };
         this.eatFood = (X, Y) => {
             // eat the food
