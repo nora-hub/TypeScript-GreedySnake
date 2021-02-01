@@ -11,7 +11,7 @@ class GameControl {
 
     constructor() {
         this.food = new Food();
-        this.scorePanel = new ScorePanel(10,5);
+        this.scorePanel = new ScorePanel(10, 3); // maximum level is 10, increase level by 3 scores
         this.snake = new Snake();
         this.init();
         this.run();        
