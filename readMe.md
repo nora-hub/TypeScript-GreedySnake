@@ -20,4 +20,8 @@ npm start
 ```
 
 ## WalkThrough Video
+<<<<<<< HEAD
 ![Walkthrough video]('https://github.com/nora-hub/TypeScript-GreedySnake/blob/main/documents/walkthrough.gif')
+=======
+![Walkthrough video](https://github.com/nora-hub/TypeScript-GreedySnake/blob/main/documents/walkthrough.gif)
+>>>>>>> 78a1b880598bdf0d4ed3be7f1045affdeb213d2a
